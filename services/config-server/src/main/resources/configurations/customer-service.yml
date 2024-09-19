@@ -1,0 +1,17 @@
+spring:
+  data:
+    mongodb:
+      username: chis
+      password: chis
+      host: localhost
+      port: 27017
+      database: customer
+      authentication-database: admin
+
+server:
+  port: 0  # Spring defines port automatically for multiple instances.
+  #port: 8090
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}  # Each instance in Eureka server should have unique id.

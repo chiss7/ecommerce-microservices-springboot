@@ -1,0 +1,34 @@
+spring:
+  data:
+    mongodb:
+      username: chis
+      password: chis
+      host: localhost
+      port: 27017
+      database: notification
+      authentication-database: admin
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: paymentGroup,orderGroup
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: '*'  # Only for local environment
+        spring.json.type.mapping: orderConfirmation:com.chis.ecommerce.kafka.order.OrderConfirmation,paymentConfirmation:com.chis.ecommerce.kafka.payment.PaymentConfirmation
+  mail:
+    host: localhost
+    port: 1025
+    username: chis
+    password: chis
+    properties:
+      mail:
+        smtp:
+          trust: "*"  # Only for local environment
+        auth: true
+        starttls:
+          enabled: true
+        connectiontimeout: 5000
+        timeout: 3000
+        writetimeout: 5000

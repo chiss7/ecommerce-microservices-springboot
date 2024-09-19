@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: native  # Search for configuration files locally instead of getting them from a git or svn repo
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configurations  # Defines the location of the configuration files when using 'native' profile
+server:
+  port: 8888

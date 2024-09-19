@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/payment
+    username: chis
+    password: chis
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: paymentConfirmation:com.chis.ecommerce.notification.PaymentNotificationRequest
+
+server:
+  port: 0  # Spring defines port automatically for multiple instances.
+  #port: 8060
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}  # Each instance in Eureka server should have unique id.

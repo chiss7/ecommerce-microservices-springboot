@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: discovery-service
+  config:
+    import: optional:configserver:http://localhost:8888  # Fetch our configuration. If the config server is unavailable, the app also tries to start (optional)

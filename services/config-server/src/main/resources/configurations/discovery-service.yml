@@ -1,0 +1,11 @@
+eureka:
+  #instance:
+    #hostname: localhost
+  client:
+    register-with-eureka: false  # Eureka server should not register itself with another eureka server
+    fetch-registry: false  # Eureka server will not attempt to fetch the registry of other Eureka servers. Its role is to store that information.
+    #service-url:
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/  # Specifies the default URL where Eureka clients will register. This URL tells Eureka clients where to find the Eureka server for service registration and discovery.
+
+server:
+  port: 8761

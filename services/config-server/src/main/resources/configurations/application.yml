@@ -1,0 +1,17 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  # Specifies the default URL where Eureka clients will register. This URL tells Eureka clients where to find the Eureka server for service registration and discovery.
+
+spring:
+  cloud:
+    config:
+      override-system-properties: false  # Do not override configuration in our specific service
+
+# Zipkin Configuration
+management:
+  tracing:
+    sampling:
+      probability: 1.0  # a trace will be sampled always.
